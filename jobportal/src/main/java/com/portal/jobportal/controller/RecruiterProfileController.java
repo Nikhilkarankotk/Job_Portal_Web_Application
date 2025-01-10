@@ -74,8 +74,10 @@ public class RecruiterProfileController {
        }
        RecruiterProfile savedUser = recruiterProfileService.addNew(recruiterProfile);
 
-       String uploadDir = "/photos/recruiter"+savedUser.getUserAccountId();
+       String uploadDir = "photos/recruiter/"+savedUser.getUserAccountId();
        try{
+           // read profile image from request multipartfile
+           // save image on the server in directory: photos/recruiter
            FileUploadUtil.saveFile(uploadDir,fileName,multipartFile);
        }catch(Exception ex){
            ex.printStackTrace();
