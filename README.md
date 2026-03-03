@@ -24,17 +24,20 @@ A modern job portal application built with Spring Boot, connecting job seekers w
 ### Login Page
 Clean and modern authentication interface with split-screen design.
 
-![Login Page](docs/screenshots/login.png)
+![Login Page](<img width="1907" height="1017" alt="image" src="https://github.com/user-attachments/assets/7364bd57-b306-47c5-a529-4c3ac9315bbd" />
+)
 
 ### Homepage
 Discover thousands of job opportunities with an intuitive search interface.
 
-![Homepage](docs/screenshots/homepage.png)
+![Homepage](<img width="1917" height="1022" alt="image" src="https://github.com/user-attachments/assets/30d5bf0f-05c9-4431-8637-09051d9e513a" />
+)
 
 ### Dashboard
 Manage your job search or recruitment activities with a streamlined dashboard.
 
-![Dashboard](docs/screenshots/dashboard.png)
+![Dashboard](<img width="1912" height="1017" alt="image" src="https://github.com/user-attachments/assets/5f53f472-da99-4546-8fa6-15b1e8214e9d" />
+)
 
 ## 🎯 Key Functionalities
 
