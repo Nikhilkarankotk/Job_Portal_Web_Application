@@ -22,28 +22,16 @@ A modern job portal application built with Spring Boot, connecting job seekers w
 ## 📸 Screenshots
 
 ### Login Page
-Clean and modern authentication interface with split-screen design.
-
-<div align="center">
-  <img src="https://via.placeholder.com/800x450/667eea/ffffff?text=Login+Page+-+Replace+with+your+screenshot" alt="Login Page" width="800"/>
-  <p><em>Replace this placeholder with your actual login page screenshot</em></p>
-</div>
+<img src="https://via.placeholder.com/800x450/667eea/ffffff?text=Login+Page+-+Replace+with+your+screenshot" alt="Login Page" width="800"/>
 
 ### Homepage
 Discover thousands of job opportunities with an intuitive search interface.
+<img src="https://via.placeholder.com/800x450/764ba2/ffffff?text=Homepage+-+Replace+with+your+screenshot" alt="Homepage" width="800"/>
 
-<div align="center">
-  <img src="https://via.placeholder.com/800x450/764ba2/ffffff?text=Homepage+-+Replace+with+your+screenshot" alt="Homepage" width="800"/>
-  <p><em>Replace this placeholder with your actual homepage screenshot</em></p>
-</div>
 
 ### Dashboard
 Manage your job search or recruitment activities with a streamlined dashboard.
-
-<div align="center">
-  <img src="https://via.placeholder.com/800x450/fb4f14/ffffff?text=Dashboard+-+Replace+with+your+screenshot" alt="Dashboard" width="800"/>
-  <p><em>Replace this placeholder with your actual dashboard screenshot</em></p>
-</div>
+<img src="https://via.placeholder.com/800x450/fb4f14/ffffff?text=Dashboard+-+Replace+with+your+screenshot" alt="Dashboard" width="800"/>
 
 ---
 
