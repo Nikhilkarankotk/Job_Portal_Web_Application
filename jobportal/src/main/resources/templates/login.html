@@ -28,60 +28,73 @@
     <title>Login</title>
   </head>
 
-  <body>
-
-    <div class="row" style="margin-right:0">
-      <div class="col-md-6">
-        <div class="coffee_mug_background">
-          <div class="logo_left mt-3 pt-4 ms-5 pl-5">
-            <h2 class="logo">hotdevjobs <span class="logo_com">.com</span></h2>
+  <body class="auth-body">
+    <div class="auth-container">
+      <div class="auth-left">
+        <div class="auth-overlay">
+          <div class="auth-brand">
+            <h1>JobPortal<span class="brand-dot">.com</span></h1>
+            <p class="auth-tagline">Connect with opportunities that matter</p>
           </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="myForm" style="align-items:center">
-          <form th:action="@{/login}" th:object="${user}" method="post">
-            <h1 class="text-center bold font-weight-bold mb-4">Login</h1>
-            <div class="form-group">
-              <input
-                placeholder="Email"
-                name="username"
-                field="{email}"
-                type="email"
-                class="form-control"
-                required
-              />
+      
+      <div class="auth-right">
+        <div class="auth-form-container">
+          <div class="auth-form-header">
+            <h2 class="auth-title">Welcome Back</h2>
+            <p class="auth-subtitle">Sign in to continue your job search</p>
+          </div>
+          
+          <form th:action="@{/login}" th:object="${user}" method="post" class="auth-form">
+            <div class="form-group-modern">
+              <label class="form-label-modern">Email Address</label>
+              <div class="input-with-icon">
+                <i class="fa fa-envelope input-icon-auth"></i>
+                <input
+                  placeholder="Enter your email"
+                  name="username"
+                  field="{email}"
+                  type="email"
+                  class="form-control-modern"
+                  required
+                />
+              </div>
             </div>
-            <div class="form-group">
-              <input
-                placeholder="Password"
-                name="password"
-                field="{password}"
-                type="password"
-                class="form-control"
-                required
-              />
+            
+            <div class="form-group-modern">
+              <label class="form-label-modern">Password</label>
+              <div class="input-with-icon">
+                <i class="fa fa-lock input-icon-auth"></i>
+                <input
+                  placeholder="Enter your password"
+                  name="password"
+                  field="{password}"
+                  type="password"
+                  class="form-control-modern"
+                  required
+                />
+              </div>
             </div>
-            <div class="clearfix mb-4">
-              <label class="float-left form-check-label"
-                ><input type="checkbox" /> Remember me</label
-              >
-              <a href="#" class="color-text float-right">Forgot Password?</a>
+            
+            <div class="form-options">
+              <label class="checkbox-modern">
+                <input type="checkbox" />
+                <span>Remember me</span>
+              </label>
+              <a href="#" class="link-modern">Forgot Password?</a>
             </div>
-            <div class="form-group">
-              <button type="submit" class="myBtn">Log in</button>
+            
+            <button type="submit" class="btn-auth-primary">
+              <span>Sign In</span>
+              <i class="fa fa-arrow-right ms-2"></i>
+            </button>
+            
+            <div class="auth-footer">
+              <p>Don't have an account? 
+                <a class="link-modern" th:href="@{/register}">Create one now</a>
+              </p>
             </div>
-
-            <p class="text-center">
-              Are you a new User?
-              <a
-                class="color-text"
-                href="#"
-                th:href="@{/register}"
-              >
-                Register Now</a
-              >
-            </p>
           </form>
         </div>
       </div>

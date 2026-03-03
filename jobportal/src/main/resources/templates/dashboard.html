@@ -18,75 +18,74 @@
 </head>
 
 <body>
-<header class="navbar navbar-expand-lg navbar-dark">
-    <label class="mt-2 ms-5 font-weight-bold h5"
-    ><a th:href="@{/dashboard/}">hotdevjobs</a
-    ><span class="logo_com font-weight-bold h5" style="color: white">
-          .com</span
-    ></label
-    >
-    <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-    >
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<header class="navbar navbar-expand-lg navbar-dark modern-header">
+    <div class="container-fluid px-4">
+        <a class="navbar-brand d-flex align-items-center" th:href="@{/dashboard/}">
+            <span class="brand-text">JobPortal</span>
+            <span class="brand-badge">.com</span>
+        </a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarToggler"
+                aria-controls="navbarToggler"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="navbarToggler">
-        <ul class="navbar-nav m-auto mt-2 mt-lg-0">
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item" sec:authorize="hasAuthority('Job Seeker')">
+                    <a class="nav-link active" th:href="@{/dashboard/}">
+                        <i class="fas fa-search me-2"></i>Search Jobs
+                    </a>
+                </li>
+                <li class="nav-item" sec:authorize="hasAuthority('Job Seeker')">
+                    <a class="nav-link" th:href="@{/saved-jobs/}">
+                        <i class="fa-solid fa-bookmark me-2"></i>Saved Jobs
+                    </a>
+                </li>
+                <li class="nav-item" sec:authorize="hasAuthority('Job Seeker')">
+                    <a class="nav-link" th:href="@{/job-seeker-profile/}">
+                        <i class="fa-solid fa-user me-2"></i>My Profile
+                    </a>
+                </li>
 
-            <li class="nav-item active">
-                <a sec:authorize="hasAuthority('Job Seeker')" class="nav-link" th:href="@{/dashboard/}"
-                ><i class="fas fa-search"></i>Search for Jobs</a
-                >
-            </li>
-            <li class="nav-item ">
-                <a sec:authorize="hasAuthority('Job Seeker')" class="nav-link" th:href="@{/saved-jobs/}">
-                    <i class="fa-solid fa-eye"></i>View Saved Jobs</a>
-            </li>
-            <li class="nav-item ">
-                <a sec:authorize="hasAuthority('Job Seeker')" class="nav-link" th:href="@{/job-seeker-profile/}">
-                    <i class="fa-solid fa-pencil"></i>Edit Profile</a>
-            </li>
-
-            <li class="nav-item ">
-                <a sec:authorize="hasAuthority('Recruiter')" class="nav-link" th:href="@{/dashboard/add}"
-                ><i class="fa-solid fa-file-circle-plus"></i>Post New Job</a
-                >
-            </li>
-            <li class="nav-item active">
-                <a sec:authorize="hasAuthority('Recruiter')" class="nav-link" th:href="@{/dashboard/}"
-                > <i class="fa-solid fa-eye"></i>View Your Jobs</a
-                >
-            </li>
-            <li class="nav-item ">
-                <a sec:authorize="hasAuthority('Recruiter')" class="nav-link" th:href="@{/recruiter-profile/}"
-                > <i class="fa-solid fa-pencil"></i>Edit Account</a
-                >
-            </li>
-
-        </ul>
-        <img
-                class="rounded-circle me-3"
-                height="50px"
-                width="50x"
-                th:if="${user.photosImagePath!=null}"
-                th:src="@{${user?.photosImagePath}}"
-        />
-        <label th:if="${user.firstName != null && user.lastName != null}"
-               th:text="${user.firstName+' '+user.lastName}"
-               class="nav-item nav-link px-2 me-3">
-        </label>
-
-        <label th:unless="${user.firstName != null && user.lastName != null}" th:text="${username}"
-               class="nav-item nav-link px-2 me-3"></label>
-
-        <button class="myBtn-light me-5" onclick="window.location.href='/logout'">Logout</button>
+                <li class="nav-item" sec:authorize="hasAuthority('Recruiter')">
+                    <a class="nav-link" th:href="@{/dashboard/add}">
+                        <i class="fa-solid fa-plus-circle me-2"></i>Post Job
+                    </a>
+                </li>
+                <li class="nav-item" sec:authorize="hasAuthority('Recruiter')">
+                    <a class="nav-link active" th:href="@{/dashboard/}">
+                        <i class="fa-solid fa-briefcase me-2"></i>My Jobs
+                    </a>
+                </li>
+                <li class="nav-item" sec:authorize="hasAuthority('Recruiter')">
+                    <a class="nav-link" th:href="@{/recruiter-profile/}">
+                        <i class="fa-solid fa-user me-2"></i>My Profile
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="d-flex align-items-center gap-3">
+                <img
+                        class="rounded-circle profile-img"
+                        th:if="${user.photosImagePath!=null}"
+                        th:src="@{${user?.photosImagePath}}"
+                        alt="Profile"
+                />
+                <span class="text-white fw-bold" 
+                      th:text="${user.firstName != null && user.lastName != null ? user.firstName + ' ' + user.lastName : username}">
+                </span>
+                <button class="btn btn-logout" onclick="window.location.href='/logout'">
+                    <i class="fa-solid fa-sign-out-alt me-2"></i>Logout
+                </button>
+            </div>
+        </div>
     </div>
 </header>
 
@@ -230,64 +229,71 @@
         </div>
     </div>
     <article>
-        <div class="box" sec:authorize="hasAuthority('Job Seeker')">
-            <h1 class="primary-title">Candidate Dashboard</h1>
-            <div class="inner">
-                <input id="job" class="radius-left" type="text" placeholder="Search for a job" name="job"
-                       th:value="${job}"/>
-                <input id="loc" class="" type="text" placeholder="Job Location" name="location" th:value="${location}"/>
-                <button class="radius-right" type="submit" form="myForm"><i class="fa fa-search"></i></button>
+        <div class="dashboard-header" sec:authorize="hasAuthority('Job Seeker')">
+            <h1 class="dashboard-title">Find Your Next Opportunity</h1>
+            <div class="search-bar-dashboard">
+                <div class="search-input-wrapper">
+                    <i class="fa fa-search search-icon-dash"></i>
+                    <input id="job" type="text" placeholder="Job title, keywords, or company" name="job"
+                           th:value="${job}"/>
+                </div>
+                <div class="search-input-wrapper">
+                    <i class="fa fa-map-marker-alt search-icon-dash"></i>
+                    <input id="loc" type="text" placeholder="City, state, or zip code" name="location" 
+                           th:value="${location}"/>
+                </div>
+                <button class="btn-search-dash" type="submit" form="myForm">
+                    <i class="fa fa-search me-2"></i>Search
+                </button>
             </div>
         </div>
-        <div class="box" sec:authorize="hasAuthority('Recruiter')">
-            <h1 class="primary-title">Recruiter Dashboard</h1>
+        
+        <div class="dashboard-header" sec:authorize="hasAuthority('Recruiter')">
+            <h1 class="dashboard-title">Manage Your Job Postings</h1>
+            <p class="dashboard-subtitle">View applications and manage your active job listings</p>
         </div>
-        <div class="box mt-3">
-            <label class="large-label px-3 mb-3" sec:authorize="hasAuthority('Job Seeker')">Search Results</label>
+        
+        <div class="jobs-container">
+            <div class="jobs-header">
+                <h2 class="jobs-title" sec:authorize="hasAuthority('Job Seeker')">Available Positions</h2>
+                <h2 class="jobs-title" sec:authorize="hasAuthority('Recruiter')">Your Job Postings</h2>
+            </div>
+            
             <th:block th:each="jobPost:${jobPost}">
-                <a
-                        th:href="@{/job-details-apply/{id}(id=${jobPost.jobPostId})}"
-                        style="text-decoration: none; color: black"
-                >
-                    <div
-                            onclick="window.location=/job-details-apply/{id}(id=${jobPost.jobPostId})"
-                            class="job-row"
-                    >
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label class="job-title text-left">
-                                    [[${jobPost.jobTitle}]]
-                                    <span
-                                            class="title-span"
-                                            sec:authorize="hasAuthority('Recruiter')"
-                                            th:text="'('+ @{${jobPost.totalCandidates}}+' Candidates Applied)'"
-                                    >(xx candidates applied)</span
-                                    >
-                                    <span
-                                            class="title-span"
-                                            sec:authorize="hasAuthority('Job Seeker')"
-                                            th:if="${jobPost.isActive == true}"
-                                    >(Applied)</span
-                                    >
-                                    <span
-                                            class="title-span"
-                                            sec:authorize="hasAuthority('Job Seeker')"
-                                            th:if="${jobPost.isSaved == true}"
-                                    >(Saved)</span
-                                    >
-                                </label>
+                <a th:href="@{/job-details-apply/{id}(id=${jobPost.jobPostId})}" class="job-card-link">
+                    <div class="job-card-modern">
+                        <div class="job-card-header">
+                            <div>
+                                <h3 class="job-card-title">[[${jobPost.jobTitle}]]</h3>
+                                <p class="job-card-company" th:text="${jobPost.jobCompanyId.name}">Company Name</p>
                             </div>
-                            <div class="col-md-4 text-center">
-                                <label
-                                        th:text="${jobPost.jobLocationId.city+', '+ jobPost.jobLocationId.state}"
-                                >
-                                    City State</label
-                                >
+                            <div class="job-card-badges">
+                                <span class="badge badge-applied" 
+                                      sec:authorize="hasAuthority('Job Seeker')"
+                                      th:if="${jobPost.isActive == true}">
+                                    <i class="fa fa-check-circle me-1"></i>Applied
+                                </span>
+                                <span class="badge badge-saved" 
+                                      sec:authorize="hasAuthority('Job Seeker')"
+                                      th:if="${jobPost.isSaved == true}">
+                                    <i class="fa fa-bookmark me-1"></i>Saved
+                                </span>
+                                <span class="badge badge-candidates" 
+                                      sec:authorize="hasAuthority('Recruiter')"
+                                      th:text="${jobPost.totalCandidates} + ' Applicants'">
+                                    0 Applicants
+                                </span>
                             </div>
-                            <div class="col-md-4 text-right">
-                                <label th:text="@{${jobPost.jobCompanyId.name}}"
-                                >Recruiter Company Name</label
-                                >
+                        </div>
+                        <div class="job-card-footer">
+                            <div class="job-card-info">
+                                <i class="fa fa-map-marker-alt me-2"></i>
+                                <span th:text="${jobPost.jobLocationId.city + ', ' + jobPost.jobLocationId.state}">
+                                    Location
+                                </span>
+                            </div>
+                            <div class="job-card-arrow">
+                                <i class="fa fa-arrow-right"></i>
                             </div>
                         </div>
                     </div>
