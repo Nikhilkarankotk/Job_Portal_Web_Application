@@ -24,17 +24,33 @@ A modern job portal application built with Spring Boot, connecting job seekers w
 ### Login Page
 Clean and modern authentication interface with split-screen design.
 
-![Login Page](docs/screenshots/login.png)
+<div align="center">
+  <img src="https://via.placeholder.com/800x450/667eea/ffffff?text=Login+Page+-+Replace+with+your+screenshot" alt="Login Page" width="800"/>
+  <p><em>Replace this placeholder with your actual login page screenshot</em></p>
+</div>
 
 ### Homepage
 Discover thousands of job opportunities with an intuitive search interface.
 
-![Homepage](docs/screenshots/homepage.png)
+<div align="center">
+  <img src="https://via.placeholder.com/800x450/764ba2/ffffff?text=Homepage+-+Replace+with+your+screenshot" alt="Homepage" width="800"/>
+  <p><em>Replace this placeholder with your actual homepage screenshot</em></p>
+</div>
 
 ### Dashboard
 Manage your job search or recruitment activities with a streamlined dashboard.
 
-![Dashboard](docs/screenshots/dashboard.png)
+<div align="center">
+  <img src="https://via.placeholder.com/800x450/fb4f14/ffffff?text=Dashboard+-+Replace+with+your+screenshot" alt="Dashboard" width="800"/>
+  <p><em>Replace this placeholder with your actual dashboard screenshot</em></p>
+</div>
+
+---
+
+**To add your screenshots:**
+1. Take screenshots of your application pages
+2. Upload them to an image hosting service (GitHub, Imgur, etc.) or save them in `docs/screenshots/`
+3. Replace the placeholder URLs above with your actual image URLs
 
 ## 🎯 Key Functionalities
 
